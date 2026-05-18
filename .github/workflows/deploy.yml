@@ -30,10 +30,10 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker tag my-app:latest \
-          ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}/docker-ecr:latest
+          docker tag docker-ecr:latest \
+          ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}docker-ecr:latest
 
       - name: Push Docker Image to ECR
         run: |
           docker push \
-          ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}/docker-ecr:latest
+          ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}docker-ecr:latest
